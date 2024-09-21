@@ -8,9 +8,6 @@ pub type InstantiateMsg = sg721::InstantiateMsg;
 pub type ExecuteMsg = sg721::ExecuteMsg<Metadata, Empty>;
 pub type QueryMsg = sg721_base::msg::QueryMsg;
 
-// version info for migration info
-const CONTRACT_NAME: &str = "crates.io:sg721-metadata-onchain";
-const CONTRACT_VERSION: &str = env!("CARGO_PKG_VERSION");
 pub const EARLIEST_VERSION: &str = "0.16.0";
 pub const TO_VERSION: &str = "3.0.0";
 
@@ -24,6 +21,10 @@ pub mod entry {
 
     use sg721_base::{msg::QueryMsg, ContractError};
     use sg_std::Response;
+
+    // version info for migration info
+    const CONTRACT_NAME: &str = "crates.io:sg721-metadata-onchain";
+    const CONTRACT_VERSION: &str = env!("CARGO_PKG_VERSION");
 
     #[entry_point]
     pub fn instantiate(

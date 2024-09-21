@@ -14,10 +14,10 @@ resolver = "2"
 [workspace.package]
 version    = "3.14.0"
 rust-version = "1.73.0"
-edition    = "2021"
-homepage   = "https://stargaze.zone"
-repository = "https://github.com/public-awesome/launchpad"
-license    = "Apache-2.0"
+edition      = "2021"
+homepage     = "https://stargaze.zone"
+repository   = "https://github.com/public-awesome/launchpad"
+license      = "Apache-2.0"
 
 [workspace.dependencies]
 base-factory         = { version = "3.14.0", path = "contracts/factories/base-factory" }
@@ -51,7 +51,9 @@ sg-std               = { version = "3.2.0" }
 sg-whitelist         = { version = "3.14.0", path = "contracts/whitelists/whitelist" }
 thiserror            = "1.0.31"
 url                  = "2.2.2"
-sha2                 = { version = "0.10.2", default-features = false }
+hex                  = { version = "0.4.3", default-features = false }
+time                 = { version = "0.3.36", default-features = false }
+sha2                 = { version = "0.10.8", default-features = false }
 
 whitelist-mtree             = { version = "3.14.0", path = "contracts/whitelists/whitelist-merkletree" }
 vending-minter-merkle-wl    = { version = "3.14.0", path = "contracts/minters/vending-minter-merkle-wl" }
@@ -67,6 +69,10 @@ test-suite           = { version = "3.14.0", path = "test-suite" }
 
 semver               = "1"
 cw-ownable           = "0.5.1"
+
+sg721-metadata-onchain   = { version = "3.14.0", path = "contracts/collections/sg721-metadata-onchain" }
+metadata-factory         = { version = "3.14.0", path = "contracts/factories/metadata-factory" }
+
 
 [profile.release.package.sg721]
 codegen-units = 1
