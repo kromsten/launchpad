@@ -34,10 +34,7 @@ mod tests {
         };
 
         let init_data_binary = to_json_binary(&mint_data).unwrap();
-        println!("init data binary: {:?}", init_data_binary.to_base64());
         let init_data_hash = Sha256::hash(&init_data_binary);
-        println!("init data hash: {:?}", init_data_hash);
-        println!("init data hash hex: {:?}", hex::encode(init_data_hash));
 
         let final_hash = mint_data.proof_hashes.iter().try_fold(
             init_data_hash,
@@ -51,7 +48,6 @@ mod tests {
             },
         );
         
-        println!("final hash: {:?}", final_hash);
         assert!(final_hash.is_ok());
         let final_hex = hex::encode(final_hash.unwrap());
         assert_eq!(merkle_root, final_hex);
