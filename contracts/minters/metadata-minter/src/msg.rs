@@ -14,19 +14,10 @@ pub struct InstantiateMsg {
 
 
 #[cw_serde]
-pub struct MintWLToHash {
-    pub allowance   :   Option<u16>,
-    pub sender      :   String,
-}
-
-
-#[cw_serde]
 pub struct MintWhitelist {
     pub allowance:    Option<u32>,
     pub proof_hashes: Option<Vec<String>>,
 }
-
-
 
 
 
