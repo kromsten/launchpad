@@ -21,6 +21,7 @@ pub struct MetadataMinterInitMsgExtension {
     pub whitelist: Option<String>,
 }
 
+
 pub type MetadataMinterCreateMsg = CreateMinterMsg<MetadataMinterInitMsgExtension>;
 
 pub type ExecuteMsg = Sg2ExecuteMsg<MetadataMinterInitMsgExtension>;

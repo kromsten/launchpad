@@ -575,17 +575,15 @@ fn _execute_mint(
 
     let config = CONFIG.load(deps.storage)?;
 
-    let token_id = mint_data.token_id;
+    let token_id = mint_data.token_id.clone();
 
     if 
-        token_id == 0 || 
-        token_id > config.extension.num_tokens  || 
-        MINTED_IDS.has(deps.storage, token_id) {
+        MINTED_IDS.has(deps.storage, &token_id) {
 
         return Err(ContractError::InvalidTokenId {});
     }
 
-    MINTED_IDS.save(deps.storage, token_id, &true)?;
+    MINTED_IDS.save(deps.storage,&token_id, &true)?;
 
     if !is_admin && mint_data.proof_hashes.is_empty() {
         return Err(ContractError::InvalidMintData {});
@@ -643,7 +641,7 @@ fn _execute_mint(
 
     // Create mint msgs
     let mint_msg = sg721_metadata_onchain::ExecuteMsg::Mint { 
-        token_id: mint_data.token_id.to_string(), 
+        token_id: token_id.clone(),
         owner: recipient_addr.to_string(),
         extension: mint_data.metadata,
         token_uri: None, 
@@ -682,7 +680,7 @@ fn _execute_mint(
         .add_attribute("action", action)
         .add_attribute("sender", info.sender)
         .add_attribute("recipient", recipient_addr)
-        .add_attribute("token_id", mint_data.token_id.to_string())
+        .add_attribute("token_id", token_id)
         .add_attribute(
             "network_fee",
             coin(network_fee.u128(), mint_price.clone().denom).to_string(),

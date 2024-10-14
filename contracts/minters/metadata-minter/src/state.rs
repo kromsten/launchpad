@@ -22,7 +22,7 @@ pub const CONFIG: Item<Config> = Item::new("config");
 pub const SG721_ADDRESS: Item<Addr> = Item::new("sg721_address");
 // map of index position and token id
 
-pub const MINTED_IDS : Map<u32, bool> = Map::new("minted_ids");
+pub const MINTED_IDS : Map<&str, bool> = Map::new("minted_ids");
 pub const MINTABLE_NUM_TOKENS: Item<u32> = Item::new("mintable_num_tokens");
 
 pub const MINTER_ADDRS: Map<&Addr, u32> = Map::new("ma");

@@ -115,7 +115,7 @@ pub struct MintData {
     
     pub metadata: Metadata,
 
-    pub token_id: u32,
+    pub token_id: String,
 
     #[serde(skip_serializing)]
     pub proof_hashes: Vec<String>,

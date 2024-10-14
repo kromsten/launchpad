@@ -9,7 +9,7 @@ mod tests {
 
         let _deps = mock_dependencies();
 
-        let merkle_root = String::from("8705af05335c87f129954ef218534c081dc9360a29d3ec8e7635a491b3242f76");       
+        let merkle_root = String::from("d856e985504d0375ab36b39d783d9491e9f18840f0da07380fb3c8f54945c956");       
         let mint_data  =  MintData {
             metadata: Metadata {
                 name: Some("Space Skellies #1".to_string()),
@@ -25,11 +25,11 @@ mod tests {
                 ]),
                 ..Default::default()
             },
-            token_id: 1u32,
+            token_id: "1".to_string(),
             proof_hashes: vec![
-                "dfd8f793aeda2ca3ad9372ad70138cb705f04b7067b414a4a31f8616e87305bd".to_string(),
-                "be6f4f58d4d4311c97f0dfa9d59f6759e3fdbb8ce00ae8c5b735c724711c91db".to_string(),
-                "3e172bb00cf6a4375726f52db7730559830084d8ad0050e3a61d1a24d91b56f3".to_string()
+                "66a85f85b71055247d86fe8bae4dc66e81881db74cb52df58489510d757ffafe".to_string(),
+                "cb10e2922f2aa7001fc4f6ee4da0c3e8ac162f630166df71d3aef25d719283be".to_string(),
+                "e4d853870c6b2dd5b61226e54a0b5bbf15c993299da95904e1f2fcf85c2d8b63".to_string()
             ],
         };
 
